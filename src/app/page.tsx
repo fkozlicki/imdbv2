@@ -1,91 +1,52 @@
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from './page.module.css'
+import MoviesCarousel from '@/components/MoviesCarousel';
+import axios from 'axios';
 
-const inter = Inter({ subsets: ['latin'] })
+export interface MoviePreview {
+	adult: boolean;
+	backdrop_path: string;
+	genre_ids: number[];
+	id: number;
+	original_language: string;
+	original_title: string;
+	overview: string;
+	popularity: number;
+	poster_path: string;
+	release_date: string;
+	title: string;
+	video: false;
+	vote_average: number;
+	vote_count: number;
+}
 
-export default function Home() {
-  return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>src/app/page.tsx</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
+const fetchMovies = (category: string) =>
+	axios.get(`https://api.themoviedb.org/3/movie/${category}`, {
+		params: {
+			api_key: process.env.API_KEY,
+		},
+	});
 
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <div className={styles.thirteen}>
-          <Image src="/thirteen.svg" alt="13" width={40} height={31} priority />
-        </div>
-      </div>
+export default async function Home() {
+	const {
+		'0': {
+			data: { results: popular },
+		},
+		'1': {
+			data: { results: upcoming },
+		},
+		'2': {
+			data: { results: top_rated },
+		},
+	} = await Promise.all([
+		fetchMovies('popular'),
+		fetchMovies('upcoming'),
+		fetchMovies('top_rated'),
+	]);
 
-      <div className={styles.grid}>
-        <a
-          href="https://beta.nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={inter.className}>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p className={inter.className}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+	return (
+		<main style={{ paddingBlock: '50px' }}>
+			<MoviesCarousel title="Popular Movies" movies={popular} />
+			<MoviesCarousel title="Upcoming Movies" movies={upcoming} />
+			<MoviesCarousel title="Top Rated Movies" movies={top_rated} />
+		</main>
+	);
 }
