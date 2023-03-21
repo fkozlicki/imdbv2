@@ -1,32 +1,52 @@
 'use client';
 
-import { MoviePreview } from '@/app/page';
+import { MoviePreview, ShowPreview } from '@/app/page';
 import { Container, Typography } from '@mui/material';
 import React from 'react';
 import Carousel from './Carousel';
 import MovieCard from './MovieCard';
+import SectionTitle from './SectionTitle';
 
 interface MoviesCarouselProps {
 	title: string;
-	movies: MoviePreview[];
+	previews: (MoviePreview | ShowPreview)[];
 }
 
-const MoviesCarousel = ({ title, movies }: MoviesCarouselProps) => {
+const isShow = (preview: any): preview is ShowPreview => {
+	return (preview as ShowPreview).name !== undefined;
+};
+
+const MoviesCarousel = ({ title, previews }: MoviesCarouselProps) => {
 	return (
 		<Container sx={{ marginBottom: 6 }}>
-			<Typography fontSize={28} fontWeight={600} marginBottom={2}>
-				{title}
-			</Typography>
+			<SectionTitle title={title} />
 			<Carousel xs={2.3} sm={4.5} md={6}>
-				{movies.map(({ poster_path, title, vote_average, id }, index) => (
-					<MovieCard
-						key={index}
-						id={id}
-						image={poster_path}
-						rating={vote_average}
-						title={title}
-					/>
-				))}
+				{previews.map((preview, index) => {
+					const { id, poster_path, vote_average } = preview;
+					if (isShow(preview)) {
+						const { name } = preview;
+						return (
+							<MovieCard
+								key={index}
+								id={id}
+								image={poster_path}
+								rating={vote_average}
+								title={name}
+							/>
+						);
+					} else {
+						const { title } = preview;
+						return (
+							<MovieCard
+								key={index}
+								id={id}
+								image={poster_path}
+								rating={vote_average}
+								title={title}
+							/>
+						);
+					}
+				})}
 			</Carousel>
 		</Container>
 	);
