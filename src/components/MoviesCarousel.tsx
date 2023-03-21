@@ -1,7 +1,7 @@
 'use client';
 
 import { MoviePreview, ShowPreview } from '@/app/page';
-import { Container, Typography } from '@mui/material';
+import { Container } from '@mui/material';
 import React from 'react';
 import Carousel from './Carousel';
 import MovieCard from './MovieCard';
