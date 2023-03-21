@@ -1,6 +1,6 @@
 'use client';
 
-import { Show } from '@/app/popular/shows/page';
+import { ShowPreview } from '@/app/popular/shows/page';
 import { Box, Typography } from '@mui/material';
 import { ColumnDef } from '@tanstack/react-table';
 import Image from 'next/image';
@@ -9,8 +9,8 @@ import Table from './Table';
 import StarIcon from '@mui/icons-material/Star';
 import Link from 'next/link';
 
-const PopularTable = ({ data }: { data: Show[] }) => {
-	const columns: ColumnDef<Show>[] = [
+const PopularTable = ({ data }: { data: ShowPreview[] }) => {
+	const columns: ColumnDef<ShowPreview>[] = [
 		{
 			header: '',
 			accessorKey: 'poster_path',
