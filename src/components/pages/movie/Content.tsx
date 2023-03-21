@@ -9,7 +9,7 @@ import type {
 	Details,
 	ExtraInfo,
 } from '@/app/movies/[id]/page';
-import { AggregateCast, Episode } from '@/app/shows/[id]/page';
+import Show, { AggregateCast, Episode } from '@/app/shows/[id]/page';
 import Episodes from '@/components/Episodes';
 import Similar from '@/components/pages/movie/Similar';
 import { Container, Grid } from '@mui/material';
@@ -27,7 +27,7 @@ interface ContentProps {
 	photos: Photo[];
 	cast: (Cast | AggregateCast)[];
 	reviews: Review[];
-	similar: Movie[];
+	similar: (Movie | Show)[];
 	recommendations: Movie[];
 	details: Details;
 	moreInfo: ExtraInfo;

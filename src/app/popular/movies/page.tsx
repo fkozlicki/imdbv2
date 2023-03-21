@@ -1,14 +1,18 @@
 import axios from 'axios';
 import React from 'react';
 import MoviesTable from '@/components/MoviesTable';
+import { MoviePreview } from '@/app/page';
 
 const getPopularMovies = (page: number) =>
-	axios.get('https://api.themoviedb.org/3/movie/popular', {
-		params: {
-			api_key: process.env.API_KEY,
-			page,
-		},
-	});
+	axios.get<{ results: MoviePreview[] }>(
+		'https://api.themoviedb.org/3/movie/popular',
+		{
+			params: {
+				api_key: process.env.API_KEY,
+				page,
+			},
+		}
+	);
 
 const PopularMovies = async () => {
 	const results = await Promise.all([

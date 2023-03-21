@@ -1,14 +1,4 @@
-import {
-	Company,
-	Country,
-	Details,
-	Genre,
-	Language,
-	Movie,
-	Photo,
-	Review,
-	Video,
-} from '@/app/movies/[id]/page';
+import { Details, Media } from '@/app/movies/[id]/page';
 import Content from '@/components/pages/movie/Content';
 import Intro from '@/components/pages/movie/Intro';
 import axios from 'axios';
@@ -89,18 +79,13 @@ interface Network {
 	origin_country: string;
 }
 
-interface Show {
-	adult: boolean;
-	backdrop_path: string;
+interface Show extends Media {
 	created_by: CreatedBy[];
 	episode_run_time: number[];
-	first_air_date: string;
-	genres: Genre[];
-	homepage: string;
-	id: number;
 	name: string;
 	in_production: boolean;
 	languages: string[];
+	first_air_date: string;
 	last_air_date: string;
 	last_episode_to_air: Episode;
 	next_episode_to_air?: Episode;
@@ -108,37 +93,14 @@ interface Show {
 	number_of_episodes: number;
 	number_of_seasons: number;
 	origin_country: string[];
-	original_language: string;
 	original_name: string;
-	overview: string;
-	popularity: number;
-	poster_path: string;
-	production_companies: Company[];
-	production_countries: Country[];
 	seasons: Season[];
-	spoken_languages: Language[];
-	status: string;
-	tagline: string;
 	type: string;
-	vote_average: number;
-	vote_count: number;
-	videos: { results: Video[] };
-	images: {
-		backdrops: Photo[];
-		logos: Photo[];
-		posters: Photo[];
-	};
 	aggregate_credits: {
 		cast: AggregateCast[];
 	};
 	similar: {
-		results: Movie[];
-	};
-	reviews: {
-		results: Review[];
-	};
-	recommendations: {
-		results: Movie[];
+		results: Show[];
 	};
 }
 

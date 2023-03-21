@@ -91,41 +91,51 @@ export interface Language {
 	name: string;
 }
 
-export interface Movie {
+export interface Media {
+	adult: false;
 	id: number;
-	title: string;
-	overview: string;
-	poster_path: string;
-	release_date: string;
-	runtime: number;
-	status: string;
 	vote_average: number;
 	vote_count: number;
-	budget: number;
-	revenue: number;
-	genres: Genre[];
-	production_companies: Company[];
-	production_countries: Country[];
-	spoken_languages: Language[];
-	videos: {
-		results: Video[];
-	};
+	status: string;
+	overview: string;
+	poster_path: string;
 	images: {
 		backdrops: Photo[];
 		logos: Photo[];
 		posters: Photo[];
 	};
+	reviews: {
+		results: Review[];
+	};
+	recommendations: {
+		results: Movie[];
+	};
+	backdrop_path: string;
+	homepage: string;
+	tagline: string;
+	popularity: number;
+	original_language: string;
+	genres: Genre[];
+	production_companies: Company[];
+	production_countries: Country[];
+	videos: {
+		results: Video[];
+	};
+	spoken_languages: Language[];
+}
+
+export interface Movie extends Media {
+	original_title: string;
+	title: string;
+	release_date: string;
+	runtime: number;
+	budget: number;
+	revenue: number;
 	credits: {
 		cast: Cast[];
 		crew: Crew[];
 	};
-	reviews: {
-		results: Review[];
-	};
 	similar: {
-		results: Movie[];
-	};
-	recommendations: {
 		results: Movie[];
 	};
 }
