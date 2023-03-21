@@ -102,7 +102,7 @@ export default function Navbar() {
 				})
 			).data;
 
-			setResult(data.results);
+			setResult(data.results.slice(0, 8));
 		} catch (error) {
 			console.error(error);
 			setError('Searching failed. Try again or refresh the page.');
@@ -139,7 +139,10 @@ export default function Navbar() {
 	};
 
 	return (
-		<AppBar position="static" sx={{ backgroundImage: 'none' }}>
+		<AppBar
+			position="static"
+			sx={{ backgroundImage: 'none', position: 'relative' }}
+		>
 			<Container sx={{ paddingY: 0.5 }}>
 				<Box
 					sx={{
@@ -296,6 +299,9 @@ const Search = styled('button')<{ open: boolean }>(({ theme, open }) => ({
 	alignItems: 'center',
 	paddingInline: theme.spacing(1),
 	visibility: open ? 'visible' : 'hidden',
+	outline: 'none',
+	textAlign: 'start',
+	border: 'none',
 
 	[theme.breakpoints.up('sm')]: {
 		padding: 0,
