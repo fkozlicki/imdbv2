@@ -27,6 +27,7 @@ const SectionTitle = ({ title }: SectionTitleProps) => {
 						xs: '24px',
 						sm: '32px',
 					},
+					color: 'text.primary',
 				}}
 			>
 				{title}

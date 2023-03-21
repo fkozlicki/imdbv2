@@ -30,7 +30,7 @@ const KnownForPreview = ({
 				sx={{
 					display: 'flex',
 					border: 1,
-					borderColor: 'ButtonHighlight',
+					borderColor: 'divider',
 					borderRadius: 1,
 				}}
 			>

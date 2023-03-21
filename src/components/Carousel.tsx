@@ -69,6 +69,7 @@ const Carousel = ({ children, xs, sm, md }: CarouselProps) => {
 const SwiperButton = styled('button')<{ variant: 'left' | 'right' }>(
 	({ theme, variant }) => ({
 		border: '1px solid white',
+		color: theme.palette.common.white,
 		borderRadius: '4px',
 		background: '#00000065',
 		position: 'absolute',

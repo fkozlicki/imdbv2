@@ -19,7 +19,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
 		<ThemeProvider>
 			<html lang="en" className={roboto.className}>
-				<body>
+				<body style={{ background: 'black' }}>
 					<Navbar />
 					{children}
 				</body>
