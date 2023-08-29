@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
 import Close from '@mui/icons-material/Close';
-import Accordions from './ui/Accordions';
+import Accordions from './Accordions';
 
 interface MenuProps {
 	isOpen: boolean;
@@ -75,8 +75,10 @@ const Menu = ({ isOpen, closeMenu }: MenuProps) => {
 								<StyledLink href="/popular/movies">
 									Most Popular Movies
 								</StyledLink>
+								<StyledLink href="/movies/genres">
+									Browse Movies by Genre
+								</StyledLink>
 								<Typography>Top 250 Movies</Typography>
-								<Typography>Browse Movies by Genre</Typography>
 							</Grid>
 							<Grid item xs={4}>
 								<SectionHeader>TV Shows</SectionHeader>
@@ -85,7 +87,9 @@ const Menu = ({ isOpen, closeMenu }: MenuProps) => {
 								<StyledLink href="/popular/shows">
 									Most Popular TV Shows
 								</StyledLink>
-								<Typography>Browse TV Shows by Genre</Typography>
+								<StyledLink href="/shows/genres">
+									Browse TV Shows by Genre
+								</StyledLink>
 							</Grid>
 							<Grid item xs={4}>
 								<SectionHeader>Celebs</SectionHeader>
