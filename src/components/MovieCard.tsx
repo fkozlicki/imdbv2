@@ -1,6 +1,3 @@
-'use client';
-
-import styled from '@emotion/styled';
 import { Box, Card, CardContent, Typography } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
@@ -24,7 +21,13 @@ const MovieCard = ({ id, image, rating, title }: MovieCardProps) => {
 					<Image src={`http://image.tmdb.org/t/p/w500/${image}`} alt="" fill />
 				</Box>
 				<CardContent>
-					<RatingWrapper>
+					<Box
+						sx={{
+							display: 'flex',
+							alignItems: 'center',
+							gap: '5px',
+						}}
+					>
 						<StarIcon
 							fontSize="small"
 							sx={{
@@ -34,12 +37,8 @@ const MovieCard = ({ id, image, rating, title }: MovieCardProps) => {
 						<Typography fontSize={16} color="grey" fontWeight={600}>
 							{rating}
 						</Typography>
-					</RatingWrapper>
-					<Typography
-						fontWeight={400}
-						color="white"
-						fontFamily="__Roboto_ec4d0e, __Roboto_Fallback_ec4d0e"
-					>
+					</Box>
+					<Typography fontWeight={400} color="white">
 						{title}
 					</Typography>
 				</CardContent>
@@ -49,9 +48,3 @@ const MovieCard = ({ id, image, rating, title }: MovieCardProps) => {
 };
 
 export default MovieCard;
-
-const RatingWrapper = styled('div')(({ theme }) => ({
-	display: 'flex',
-	alignItems: 'center',
-	gap: '5px',
-}));
