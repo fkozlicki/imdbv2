@@ -1,5 +1,5 @@
 import { Movie } from '@/app/movies/[id]/page';
-import { Show } from '@/app/popular/shows/page';
+import Show from '@/app/shows/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
 import { Card } from '@mui/material';
 import React from 'react';
