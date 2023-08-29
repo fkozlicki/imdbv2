@@ -286,7 +286,7 @@ const SearchDropdown = styled(Card)<{ open: boolean }>(({ theme, open }) => ({
 	left: 0,
 }));
 
-const Search = styled('button')<{ open: boolean }>(({ theme, open }) => ({
+const Search = styled('div')<{ open: boolean }>(({ theme, open }) => ({
 	position: 'absolute',
 	top: 0,
 	left: 0,
@@ -299,9 +299,6 @@ const Search = styled('button')<{ open: boolean }>(({ theme, open }) => ({
 	alignItems: 'center',
 	paddingInline: theme.spacing(1),
 	visibility: open ? 'visible' : 'hidden',
-	outline: 'none',
-	textAlign: 'start',
-	border: 'none',
 
 	[theme.breakpoints.up('sm')]: {
 		padding: 0,
