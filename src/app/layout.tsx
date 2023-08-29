@@ -1,8 +1,8 @@
 import Navbar from '@/components/Navbar';
 import './globals.css';
 import { Roboto } from 'next/font/google';
-import ThemeProvider from '@/components/ThemeProvider';
 import { type ReactNode } from 'react';
+import ThemeRegistry from '@/components/ThemeRegistry';
 
 export const metadata = {
 	title: 'Create Next App',
@@ -17,13 +17,13 @@ const roboto = Roboto({
 
 export default function RootLayout({ children }: { children: ReactNode }) {
 	return (
-		<ThemeProvider>
-			<html lang="en" className={roboto.className}>
+		<html lang="en" className={roboto.className}>
+			<ThemeRegistry>
 				<body style={{ background: 'black' }}>
 					<Navbar />
 					{children}
 				</body>
-			</html>
-		</ThemeProvider>
+			</ThemeRegistry>
+		</html>
 	);
 }
