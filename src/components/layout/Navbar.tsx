@@ -15,7 +15,7 @@ import Image from 'next/image';
 import { Box, Card, Typography } from '@mui/material';
 import axios from 'axios';
 import Close from '@mui/icons-material/Close';
-import SearchResult from './SearchResult';
+import SearchResult from '../SearchResult';
 
 interface SearchedPerson {
 	id: number;
@@ -252,7 +252,7 @@ export default function Navbar() {
 												key={index}
 												image={el.profile_path}
 												title={el.name}
-												href={`/person/${el.id}`}
+												href={`/people/${el.id}`}
 											/>
 										);
 									}

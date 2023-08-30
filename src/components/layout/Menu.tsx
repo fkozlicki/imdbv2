@@ -7,7 +7,7 @@ import styled from '@emotion/styled';
 import Link from 'next/link';
 import Image from 'next/image';
 import Close from '@mui/icons-material/Close';
-import Accordions from './Accordions';
+import Accordions from '../Accordions';
 
 interface MenuProps {
 	isOpen: boolean;
@@ -72,19 +72,19 @@ const Menu = ({ isOpen, closeMenu }: MenuProps) => {
 						<Grid container spacing={4} color="white">
 							<Grid item xs={4}>
 								<SectionHeader>Movies</SectionHeader>
-								<StyledLink href="/popular/movies">
+								<StyledLink href="/movies/popular">
 									Most Popular Movies
 								</StyledLink>
 								<StyledLink href="/movies/genres">
 									Browse Movies by Genre
 								</StyledLink>
-								<Typography>Top 250 Movies</Typography>
+								<StyledLink href="/movies/top">Top 250 Movies</StyledLink>
 							</Grid>
 							<Grid item xs={4}>
 								<SectionHeader>TV Shows</SectionHeader>
 								<Typography>What&apos;s on TV & Streaming</Typography>
-								<Typography>Top 250 TV Shows</Typography>
-								<StyledLink href="/popular/shows">
+								<StyledLink href="/shows/top">Top 250 TV Shows</StyledLink>
+								<StyledLink href="/shows/popular">
 									Most Popular TV Shows
 								</StyledLink>
 								<StyledLink href="/shows/genres">
@@ -93,8 +93,10 @@ const Menu = ({ isOpen, closeMenu }: MenuProps) => {
 							</Grid>
 							<Grid item xs={4}>
 								<SectionHeader>Celebs</SectionHeader>
-								<Typography>Born Today</Typography>
-								<Typography>Most Popular Celebs</Typography>
+								<StyledLink href="/people/trending">Trending Celebs</StyledLink>
+								<StyledLink href="/people/popular">
+									Most Popular Celebs
+								</StyledLink>
 							</Grid>
 						</Grid>
 					</Container>
