@@ -1,6 +1,7 @@
 import { PersonMovieCast, PersonShowCast } from '@/app/people/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
-import { Card, Grid } from '@mui/material';
+import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
 import React from 'react';
 import KnownForPreview from './KnownForPreview';
 

@@ -8,7 +8,7 @@ import type {
 	ExtraInfo,
 } from '@/app/movies/[id]/page';
 import { AggregateCast, Episode, Show } from '@/app/shows/[id]/page';
-import Episodes from '@/components/Episodes';
+import Episodes from '@/components/pages/show/Episodes';
 import Similar from '@/components/pages/movie/Similar';
 import Grid from '@mui/material/Grid';
 import Container from '@mui/material/Container';

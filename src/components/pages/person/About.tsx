@@ -1,6 +1,7 @@
-'use client';
-
-import { Box, Card, Container, Typography } from '@mui/material';
+import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
+import Container from '@mui/material/Container';
+import Typography from '@mui/material/Typography';
 import Image from 'next/image';
 import React from 'react';
 

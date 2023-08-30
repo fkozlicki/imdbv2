@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ChangeEvent, useEffect, useRef, useState } from 'react';
+import React, { ChangeEvent, useEffect, useState } from 'react';
 import { styled, alpha } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import IconButton from '@mui/material/IconButton';
@@ -15,7 +15,7 @@ import Image from 'next/image';
 import { Box, Card, Typography } from '@mui/material';
 import axios from 'axios';
 import Close from '@mui/icons-material/Close';
-import SearchResult from '../SearchResult';
+import SearchResult from './SearchResult';
 
 interface SearchedPerson {
 	id: number;

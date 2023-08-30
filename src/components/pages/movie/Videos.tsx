@@ -4,7 +4,6 @@ import SectionTitle from '@/components/SectionTitle';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import Image from 'next/image';
-import Link from 'next/link';
 import React from 'react';
 
 const Videos = ({ videos }: { videos: Video[] }) => {

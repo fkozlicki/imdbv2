@@ -1,4 +1,4 @@
-import MoviesCarousel from '@/components/MoviesCarousel';
+import MoviesCarousel from '@/components/pages/home/MoviesCarousel';
 import Box from '@mui/material/Box';
 import axios from 'axios';
 
