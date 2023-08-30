@@ -62,11 +62,16 @@ export default async function Home() {
 	]);
 
 	return (
-		<main style={{ paddingBlock: '50px' }}>
+		<Box
+			component="main"
+			sx={{
+				paddingBlock: '50px',
+			}}
+		>
 			<MoviesCarousel title="Popular Movies" previews={popular} />
 			<MoviesCarousel title="Upcoming Movies" previews={upcoming} />
 			<MoviesCarousel title="Top Rated Movies" previews={top_rated} />
 			<MoviesCarousel title="Popular TV Shows" previews={popular_shows} />
-		</main>
+		</Box>
 	);
 }
