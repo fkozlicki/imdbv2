@@ -20,12 +20,8 @@ import SearchResult from './SearchResult';
 interface SearchedPerson {
 	id: number;
 	media_type: 'person';
-	known_for_department: string;
 	name: string;
-	original_name: string;
-	popularity: number;
 	profile_path: string;
-	known_for: (SearchedShow | SearchedMovie)[];
 }
 
 interface SearchedShow {
@@ -33,16 +29,7 @@ interface SearchedShow {
 	media_type: 'tv';
 	name: string;
 	poster_path: string;
-	backdrop_path: string;
 	first_air_date: string;
-	last_air_date: string | null;
-	genre_ids: number[];
-	origin_country: string[];
-	original_language: string;
-	original_name: string;
-	popularity: number;
-	vote_average: number;
-	vote_count: number;
 }
 
 interface SearchedMovie {
@@ -50,14 +37,7 @@ interface SearchedMovie {
 	media_type: 'movie';
 	title: string;
 	poster_path: string;
-	backdrop_path: string;
 	release_date: string;
-	genre_ids: number[];
-	original_language: string;
-	original_title: string;
-	popularity: number;
-	vote_average: number;
-	vote_count: number;
 }
 
 export default function Navbar() {

@@ -17,6 +17,7 @@ export interface Crew {
 }
 
 export interface Video {
+	id: number;
 	key: string;
 	type: string;
 }
