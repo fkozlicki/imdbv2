@@ -22,7 +22,7 @@ const CastPreview = ({
 	episodes,
 }: CastPreviewProps) => {
 	return (
-		<Link href={`/person/${id}`}>
+		<Link href={`/people/${id}`}>
 			<Box
 				sx={{
 					display: { md: 'flex' },
@@ -57,7 +57,7 @@ const CastPreview = ({
 								position: 'absolute',
 								top: 0,
 								left: 0,
-								fontSize: '96px',
+								fontSize: '80px',
 							}}
 						>
 							<PersonIcon fontSize="inherit" />
@@ -73,7 +73,7 @@ const CastPreview = ({
 						{name}
 					</Typography>
 					<Typography
-						fontSize={12}
+						fontSize={14}
 						color="GrayText"
 						sx={{ textAlign: { xs: 'center', md: 'start' } }}
 					>
@@ -81,7 +81,7 @@ const CastPreview = ({
 					</Typography>
 					{episodes && (
 						<Typography
-							fontSize={12}
+							fontSize={14}
 							color="GrayText"
 							sx={{ textAlign: { xs: 'center', md: 'start' } }}
 						>
