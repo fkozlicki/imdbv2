@@ -3,9 +3,9 @@
 import { MoviePreview, ShowPreview } from '@/app/page';
 import { Container } from '@mui/material';
 import React from 'react';
-import Carousel from './Carousel';
-import MovieCard from './MovieCard';
-import SectionTitle from './SectionTitle';
+import Carousel from '../../Carousel';
+import MovieCard from '../../MovieCard';
+import SectionTitle from '../../SectionTitle';
 
 interface MoviesCarouselProps {
 	title: string;

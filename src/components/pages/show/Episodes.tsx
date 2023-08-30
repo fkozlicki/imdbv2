@@ -3,7 +3,7 @@ import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import React from 'react';
 import EpisodePreview from './EpisodePreview';
-import SectionTitle from './SectionTitle';
+import SectionTitle from '../../SectionTitle';
 
 interface EpisodesProps {
 	last: Episode;
