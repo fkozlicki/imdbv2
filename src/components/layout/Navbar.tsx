@@ -106,7 +106,7 @@ export default function Navbar() {
 		setDropdownOpen(false);
 	};
 
-	const handleSearchCahnge = (event: ChangeEvent<HTMLInputElement>) => {
+	const handleSearchChange = (event: ChangeEvent<HTMLInputElement>) => {
 		setSearch(event.target.value);
 	};
 
@@ -196,7 +196,7 @@ export default function Navbar() {
 					>
 						<StyledInputBase
 							value={search}
-							onChange={handleSearchCahnge}
+							onChange={handleSearchChange}
 							placeholder="Search…"
 							inputProps={{ 'aria-label': 'search' }}
 						/>

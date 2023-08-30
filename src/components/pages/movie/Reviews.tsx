@@ -1,5 +1,3 @@
-'use client';
-
 import { Review } from '@/app/movies/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
 import Box from '@mui/material/Box';
