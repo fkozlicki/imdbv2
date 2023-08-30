@@ -5,27 +5,19 @@ interface Preview {
 	vote_count: number;
 	vote_average: number;
 	poster_path: string;
-	popularity: number;
 	overview: string;
-	original_language: string;
 	id: number;
 	genre_ids: number[];
-	backdrop_path: string;
 }
 
 export interface MoviePreview extends Preview {
-	adult: boolean;
-	original_title: string;
 	release_date: string;
 	title: string;
-	video: false;
 }
 
 export interface ShowPreview extends Preview {
 	first_air_date: string;
 	name: string;
-	origin_country: string[];
-	original_name: string;
 }
 
 const fetchMovies = (category: string) =>

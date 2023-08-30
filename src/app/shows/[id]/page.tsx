@@ -15,87 +15,44 @@ const fetchShow = async (id: string) =>
 		})
 	).data;
 
-interface ShowProps {
-	params: { id: string };
-}
-
 export interface AggregateCast {
-	adult: boolean;
-	gender: number;
 	id: number;
-	known_for_department: string;
 	name: string;
-	original_name: string;
-	popularity: number;
 	profile_path: string;
 	roles: [
 		{
-			credit_id: string;
 			character: string;
-			episode_count: number;
 		}
 	];
 	total_episode_count: number;
-	order: number;
+	popularity: number;
 }
 
 export interface CreatedBy {
 	id: number;
-	credit_id: string;
 	name: string;
-	gender: number;
-	profile_path: string;
-}
-
-interface Season {
-	air_date: string;
-	episode_count: number;
-	id: number;
-	name: string;
-	overview: string;
-	poster_path: string;
-	season_number: number;
 }
 
 export interface Episode {
 	id: number;
 	name: string;
-	overview: string;
 	vote_average: number;
 	vote_count: number;
 	air_date: string;
 	episode_number: number;
-	production_code: '';
-	runtime: number;
 	season_number: number;
-	show_id: number;
-	still_path: string;
 }
 
-interface Network {
-	id: number;
-	logo_path: string;
+export interface Show extends Media {
 	name: string;
-	origin_country: string;
-}
-
-interface Show extends Media {
 	created_by: CreatedBy[];
 	episode_run_time: number[];
-	name: string;
-	in_production: boolean;
 	languages: string[];
 	first_air_date: string;
-	last_air_date: string;
 	last_episode_to_air: Episode;
 	next_episode_to_air?: Episode;
-	networks: Network[];
 	number_of_episodes: number;
 	number_of_seasons: number;
-	origin_country: string[];
-	original_name: string;
-	seasons: Season[];
-	type: string;
 	aggregate_credits: {
 		cast: AggregateCast[];
 	};
@@ -104,7 +61,11 @@ interface Show extends Media {
 	};
 }
 
-const Show = async ({ params: { id } }: ShowProps) => {
+interface ShowProps {
+	params: { id: string };
+}
+
+const ShowPage = async ({ params: { id } }: ShowProps) => {
 	const data = await fetchShow(id);
 	const {
 		name,
@@ -177,4 +138,4 @@ const Show = async ({ params: { id } }: ShowProps) => {
 	);
 };
 
-export default Show;
+export default ShowPage;
