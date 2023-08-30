@@ -26,7 +26,7 @@ const Similar = ({ movies }: SimilarProps) => {
 						return (
 							<MovieCard
 								key={index}
-								id={id}
+								href={`/shows/${id}`}
 								image={poster_path}
 								rating={vote_average}
 								title={name}
@@ -37,7 +37,7 @@ const Similar = ({ movies }: SimilarProps) => {
 						return (
 							<MovieCard
 								key={index}
-								id={id}
+								href={`/movies/${id}`}
 								image={poster_path}
 								rating={vote_average}
 								title={title}

@@ -25,8 +25,8 @@ const Recommendations = ({ movies }: RecommendationsProps) => {
 						const { name } = movie;
 						return (
 							<MovieCard
+								href={`/shows/${id}`}
 								key={index}
-								id={id}
 								image={poster_path}
 								rating={vote_average}
 								title={name}
@@ -36,8 +36,8 @@ const Recommendations = ({ movies }: RecommendationsProps) => {
 						const { title } = movie;
 						return (
 							<MovieCard
+								href={`/movies/${id}`}
 								key={index}
-								id={id}
 								image={poster_path}
 								rating={vote_average}
 								title={title}

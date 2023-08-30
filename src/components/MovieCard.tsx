@@ -8,15 +8,15 @@ import StarIcon from '@mui/icons-material/Star';
 import Link from 'next/link';
 
 interface MovieCardProps {
-	id: number;
 	image: string;
 	rating: number;
 	title: string;
+	href: string;
 }
 
-const MovieCard = ({ id, image, rating, title }: MovieCardProps) => {
+const MovieCard = ({ image, rating, title, href }: MovieCardProps) => {
 	return (
-		<Link href={`/movies/${id}`}>
+		<Link href={href}>
 			<Card sx={{ background: '#1a1a1a', width: '100%', height: '100%' }}>
 				<Box
 					sx={{ paddingBottom: '148%', position: 'relative', width: '100%' }}
