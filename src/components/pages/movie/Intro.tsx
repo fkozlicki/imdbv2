@@ -193,21 +193,32 @@ const Intro = ({
 						marginLeft: { sm: '4px' },
 					}}
 				>
-					{trailer && (
-						<Box
-							sx={{
-								paddingBottom: { xs: '66%', sm: '48.8%' },
-								position: 'relative',
-								width: '100%',
-							}}
-						>
+					<Box
+						sx={{
+							paddingBottom: { xs: '66%', sm: '48.8%' },
+							position: 'relative',
+							width: '100%',
+						}}
+					>
+						{trailer ? (
 							<VideoPlayer
 								videoId={trailer.key}
 								opts={opts}
 								onReady={(e) => e.target.mute()}
 							/>
-						</Box>
-					)}
+						) : (
+							<Box
+								sx={{
+									position: 'absolute',
+									top: '50%',
+									left: '50%',
+									transform: 'translate(-50%, -50%)',
+								}}
+							>
+								No trailer available
+							</Box>
+						)}
+					</Box>
 				</Box>
 				<Box
 					sx={{
@@ -272,7 +283,7 @@ const Intro = ({
 							</ListItemText>
 						</ListItem>
 					)}
-					{createdBy && (
+					{createdBy && createdBy.length > 0 && (
 						<ListItem sx={{ paddingX: 0 }}>
 							<ListItemText>
 								<Typography
