@@ -43,6 +43,7 @@ const CastPreview = ({
 							src={`http://image.tmdb.org/t/p/w500/${photo}`}
 							alt=""
 							fill
+							sizes="(max-width: 768px) 200px, (max-width: 1200px) 96px, 96px"
 							style={{
 								objectFit: 'cover',
 								borderRadius: '100%',

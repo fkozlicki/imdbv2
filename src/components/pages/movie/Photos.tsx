@@ -25,6 +25,7 @@ const Photos = ({ photos }: { photos: Photo[] }) => {
 								src={`http://image.tmdb.org/t/p/w500/${photo.file_path}`}
 								alt=""
 								fill
+								sizes="(max-width: 768px) 190px, (max-width: 1200px) 180px, 180px"
 								style={{
 									objectFit: 'cover',
 								}}

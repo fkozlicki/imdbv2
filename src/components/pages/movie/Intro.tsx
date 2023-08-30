@@ -178,6 +178,7 @@ const Intro = ({
 							src={`http://image.tmdb.org/t/p/w500/${image}`}
 							alt=""
 							fill
+							sizes="(max-width: 768px) 150px, (max-width: 1200px) 230px, 230px"
 						/>
 					</Box>
 				</Box>
