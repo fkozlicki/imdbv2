@@ -1,4 +1,6 @@
-import { Avatar, Box, Typography } from '@mui/material';
+import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import Typography from '@mui/material/Typography';
 import PersonIcon from '@mui/icons-material/Person';
 import Image from 'next/image';
 import Link from 'next/link';

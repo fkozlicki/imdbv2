@@ -1,4 +1,4 @@
-import { PersonMovieCast, PersonShowCast } from '@/app/person/[id]/page';
+import { PersonMovieCast, PersonShowCast } from '@/app/people/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
 import { Card, Grid } from '@mui/material';
 import React from 'react';

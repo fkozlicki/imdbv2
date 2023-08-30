@@ -1,4 +1,5 @@
 import MoviesCarousel from '@/components/MoviesCarousel';
+import Box from '@mui/material/Box';
 import axios from 'axios';
 
 interface Preview {

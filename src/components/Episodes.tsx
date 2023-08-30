@@ -1,5 +1,6 @@
 import { Episode } from '@/app/shows/[id]/page';
-import { Box, Card, Grid, Typography } from '@mui/material';
+import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
 import React from 'react';
 import EpisodePreview from './EpisodePreview';
 import SectionTitle from './SectionTitle';

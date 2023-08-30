@@ -1,6 +1,5 @@
 'use client';
 
-import { ShowPreview } from '@/app/popular/shows/page';
 import { Box, Typography } from '@mui/material';
 import { ColumnDef } from '@tanstack/react-table';
 import Image from 'next/image';
@@ -8,6 +7,7 @@ import React from 'react';
 import Table from './Table';
 import StarIcon from '@mui/icons-material/Star';
 import Link from 'next/link';
+import { ShowPreview } from '@/app/page';
 
 const PopularTable = ({ data }: { data: ShowPreview[] }) => {
 	const columns: ColumnDef<ShowPreview>[] = [

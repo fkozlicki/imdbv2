@@ -1,4 +1,5 @@
-import { Card, Typography } from '@mui/material';
+import Card from '@mui/material/Card';
+import Typography from '@mui/material/Typography';
 import React from 'react';
 
 interface EpisodePreviewProps {

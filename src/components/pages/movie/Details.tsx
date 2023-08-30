@@ -1,11 +1,11 @@
 import { Details } from '@/app/movies/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
-import Card from '@mui/material/Card/Card';
-import Divider from '@mui/material/Divider/Divider';
-import List from '@mui/material/List/List';
-import ListItem from '@mui/material/ListItem/ListItem';
-import ListItemText from '@mui/material/ListItemText/ListItemText';
-import Typography from '@mui/material/Typography/Typography';
+import Card from '@mui/material/Card';
+import Divider from '@mui/material/Divider';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import Typography from '@mui/material/Typography';
 import React from 'react';
 
 interface DetailsProps {

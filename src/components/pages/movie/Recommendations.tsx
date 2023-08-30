@@ -1,7 +1,7 @@
 import { Movie } from '@/app/movies/[id]/page';
-import Show from '@/app/shows/[id]/page';
+import { Show } from '@/app/shows/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
-import { Card } from '@mui/material';
+import Card from '@mui/material/Card';
 import React from 'react';
 import Carousel from '../../Carousel';
 import MovieCard from '../../MovieCard';

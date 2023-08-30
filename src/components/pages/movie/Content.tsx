@@ -1,5 +1,3 @@
-'use client';
-
 import type {
 	Movie,
 	Cast,
@@ -9,10 +7,11 @@ import type {
 	Details,
 	ExtraInfo,
 } from '@/app/movies/[id]/page';
-import Show, { AggregateCast, Episode } from '@/app/shows/[id]/page';
+import { AggregateCast, Episode, Show } from '@/app/shows/[id]/page';
 import Episodes from '@/components/Episodes';
 import Similar from '@/components/pages/movie/Similar';
-import { Container, Grid } from '@mui/material';
+import Grid from '@mui/material/Grid';
+import Container from '@mui/material/Container';
 import React from 'react';
 import DetailsList from './Details';
 import MoreInfo from './MoreInfo';

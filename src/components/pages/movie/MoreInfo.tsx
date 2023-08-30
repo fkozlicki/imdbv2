@@ -1,6 +1,8 @@
 import { ExtraInfo } from '@/app/movies/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
-import { Card, Grid, Typography } from '@mui/material';
+import Card from '@mui/material/Card';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
 import React from 'react';
 
 const MoreInfo = ({ moreInfo }: { moreInfo: ExtraInfo }) => {

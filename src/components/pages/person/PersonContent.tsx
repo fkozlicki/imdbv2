@@ -1,7 +1,7 @@
 'use client';
 
 import { Photo } from '@/app/movies/[id]/page';
-import type { PersonMovieCast, PersonShowCast } from '@/app/person/[id]/page';
+import { PersonMovieCast, PersonShowCast } from '@/app/people/[id]/page';
 import { Card, Container, Grid } from '@mui/material';
 import React from 'react';
 import Photos from '../movie/Photos';

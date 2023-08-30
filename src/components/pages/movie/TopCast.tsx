@@ -1,9 +1,7 @@
-'use client';
-
 import { Cast } from '@/app/movies/[id]/page';
 import Carousel from '@/components/Carousel';
-import { Card } from '@mui/material';
-import { Box } from '@mui/system';
+import Card from '@mui/material/Card';
+import Box from '@mui/material/Box';
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import SectionTitle from '@/components/SectionTitle';
