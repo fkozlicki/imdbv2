@@ -1,6 +1,5 @@
 'use client';
 
-import type { Cast, Crew, Genre, Video } from '@/app/movies/[id]/page';
 import {
 	Card,
 	Chip,
@@ -19,7 +18,8 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Divider from '@mui/material/Divider';
-import { AggregateCast, CreatedBy } from '@/app/shows/[id]/page';
+import { Cast, Crew, Genre, Video } from '@/services/movie';
+import { AggregateCast, CreatedBy } from '@/services/show';
 
 interface IntroProps {
 	title: string;

@@ -1,5 +1,5 @@
-import { Details } from '@/app/movies/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
+import { Company, Country, Language } from '@/services/movie';
 import Card from '@mui/material/Card';
 import Divider from '@mui/material/Divider';
 import List from '@mui/material/List';
@@ -9,17 +9,18 @@ import Typography from '@mui/material/Typography';
 import React from 'react';
 
 interface DetailsProps {
-	details: Details;
+	releaseDate: string;
+	productionCountries: Country[];
+	spokenLanguages: Language[];
+	productionCompanies: Company[];
 }
 
-const Details = ({ details }: DetailsProps) => {
-	const {
-		release_date,
-		production_countries,
-		spoken_languages,
-		production_companies,
-	} = details;
-
+const Details = ({
+	productionCompanies,
+	productionCountries,
+	releaseDate,
+	spokenLanguages,
+}: DetailsProps) => {
 	return (
 		<Card sx={{ marginBottom: '24px', paddingY: 2 }}>
 			<SectionTitle title="Details" />
@@ -31,7 +32,7 @@ const Details = ({ details }: DetailsProps) => {
 							Release date
 						</Typography>
 						<Typography component="span" marginRight="12px">
-							{release_date}
+							{releaseDate}
 						</Typography>
 					</ListItemText>
 				</ListItem>
@@ -41,7 +42,7 @@ const Details = ({ details }: DetailsProps) => {
 						<Typography component="span" marginRight="16px" fontWeight={600}>
 							Country of origin
 						</Typography>
-						{production_countries.map(({ name }) => (
+						{productionCountries.map(({ name }) => (
 							<Typography key={name} component="span" marginRight="12px">
 								{name}
 							</Typography>
@@ -54,7 +55,7 @@ const Details = ({ details }: DetailsProps) => {
 						<Typography component="span" marginRight="16px" fontWeight={600}>
 							Language
 						</Typography>
-						{spoken_languages.map(({ name, english_name }) => (
+						{spokenLanguages.map(({ name, english_name }) => (
 							<Typography key={name} component="span" marginRight="12px">
 								{english_name}
 							</Typography>
@@ -67,7 +68,7 @@ const Details = ({ details }: DetailsProps) => {
 						<Typography component="span" marginRight="16px" fontWeight={600}>
 							Production companies
 						</Typography>
-						{production_companies.map(({ name }) => (
+						{productionCompanies.map(({ name }) => (
 							<Typography key={name} component="span" marginRight="12px">
 								{name}
 							</Typography>

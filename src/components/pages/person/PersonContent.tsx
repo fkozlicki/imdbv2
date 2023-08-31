@@ -1,5 +1,5 @@
-import { Photo } from '@/app/movies/[id]/page';
-import { PersonMovieCast, PersonShowCast } from '@/app/people/[id]/page';
+import { Photo } from '@/services/movie';
+import { PersonMovieCast, PersonShowCast } from '@/services/people';
 import Card from '@mui/material/Card';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';

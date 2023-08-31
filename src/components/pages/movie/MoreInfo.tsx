@@ -1,12 +1,23 @@
-import { ExtraInfo } from '@/app/movies/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
+import { Language } from '@/services/movie';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 
-const MoreInfo = ({ moreInfo }: { moreInfo: ExtraInfo }) => {
-	const { budget, original_language, revenue, status } = moreInfo;
+interface MoreInfoProps {
+	budget?: number;
+	revenue?: number;
+	status: string;
+	originalLanguage: Language;
+}
+
+const MoreInfo = ({
+	budget,
+	originalLanguage,
+	revenue,
+	status,
+}: MoreInfoProps) => {
 	return (
 		<Card sx={{ paddingBlock: '16px' }}>
 			<SectionTitle title="More info" />
@@ -17,7 +28,7 @@ const MoreInfo = ({ moreInfo }: { moreInfo: ExtraInfo }) => {
 				</Grid>
 				<Grid item xs={6} md={12}>
 					<Typography>Original Language</Typography>
-					<Typography>{original_language.english_name}</Typography>
+					<Typography>{originalLanguage.english_name}</Typography>
 				</Grid>
 				{budget && (
 					<Grid item xs={6} md={12}>

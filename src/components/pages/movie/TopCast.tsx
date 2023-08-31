@@ -1,12 +1,12 @@
-import { Cast } from '@/app/movies/[id]/page';
 import Carousel from '@/components/Carousel';
 import Card from '@mui/material/Card';
 import Box from '@mui/material/Box';
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import SectionTitle from '@/components/SectionTitle';
-import { AggregateCast } from '@/app/shows/[id]/page';
 import CastPreview from './CastPreview';
+import { Cast } from '@/services/movie';
+import { AggregateCast } from '@/services/show';
 
 interface TopCastProps {
 	cast: (Cast | AggregateCast)[];

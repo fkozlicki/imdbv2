@@ -1,18 +1,16 @@
-import { Review } from '@/app/movies/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
+import { Review } from '@/services/movie';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Typography from '@mui/material/Typography';
 import React from 'react';
 
 interface ReviewsProps {
-	reviews: Review[];
+	review: Review;
 }
 
-const Reviews = ({ reviews }: ReviewsProps) => {
-	const { author, content, created_at } = reviews.sort(
-		(a) => a.author_details.rating
-	)[0];
+const Reviews = ({ review }: ReviewsProps) => {
+	const { author, content, created_at } = review;
 
 	return (
 		<Card sx={{ marginBottom: '24px', paddingY: 2 }}>
