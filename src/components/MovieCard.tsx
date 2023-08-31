@@ -22,7 +22,29 @@ const MovieCard = ({ image, rating, title, href }: MovieCardProps) => {
 				<Box
 					sx={{ paddingBottom: '148%', position: 'relative', width: '100%' }}
 				>
-					<Image src={`http://image.tmdb.org/t/p/w500/${image}`} alt="" fill />
+					{image ? (
+						<>
+							<Image
+								src={`http://image.tmdb.org/t/p/w500/${image}`}
+								alt=""
+								fill
+								sizes="(max-width: 768px) 240px, (max-width: 1200px) 180px, 180px"
+							/>
+						</>
+					) : (
+						<Box
+							sx={{
+								width: '100%',
+								height: '100%',
+								display: 'grid',
+								placeItems: 'center',
+								position: 'absolute',
+								top: 0,
+							}}
+						>
+							<InsertPhotoIcon fontSize="large" />
+						</Box>
+					)}
 				</Box>
 				<CardContent>
 					<Box

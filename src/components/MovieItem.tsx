@@ -56,7 +56,17 @@ const MovieItem = ({
 						{rating.toFixed(1)}
 					</Typography>
 				</Box>
-				<Typography fontSize={16} marginBottom={1}>
+				<Typography
+					fontSize={16}
+					marginBottom={1}
+					sx={{
+						WebkitLineClamp: '3',
+						overflow: 'hidden',
+						textOverflow: 'ellipsis',
+						WebkitBoxOrient: 'vertical',
+						display: '-webkit-box',
+					}}
+				>
 					{description}
 				</Typography>
 				<Typography fontSize={14}>
