@@ -1,21 +1,10 @@
-import axios from 'axios';
 import React from 'react';
-import type { MoviePreview } from '@/app/page';
 import Box from '@mui/material/Box';
 import MovieItem from '@/components/MovieItem';
-
-const fetchTopMovies = () =>
-	axios.get<{ results: MoviePreview[] }>(
-		`https://api.themoviedb.org/3/movie/top_rated`,
-		{
-			params: {
-				api_key: process.env.API_KEY,
-			},
-		}
-	);
+import { fetchTopMovies } from '@/services/movie';
 
 const page = async () => {
-	const movies = (await fetchTopMovies()).data;
+	const movies = await fetchTopMovies();
 
 	return (
 		<Box
@@ -28,7 +17,7 @@ const page = async () => {
 				gap: '24px',
 			}}
 		>
-			{movies.results.map(
+			{movies.map(
 				({ id, poster_path, vote_average, title, overview, vote_count }) => (
 					<MovieItem
 						key={id}

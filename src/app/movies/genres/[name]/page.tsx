@@ -1,8 +1,6 @@
-import { MoviePreview } from '@/app/page';
-import MovieCard from '@/components/MovieCard';
 import MovieItem from '@/components/MovieItem';
+import { fetchMoviesByGenre } from '@/services/movie';
 import Box from '@mui/material/Box';
-import axios from 'axios';
 import React from 'react';
 
 const MoviesByGenre = async ({
@@ -10,19 +8,7 @@ const MoviesByGenre = async ({
 }: {
 	params: { name: string };
 }) => {
-	const movies = (
-		await axios.get<{
-			page: number;
-			results: MoviePreview[];
-			total_pages: number;
-			total_results: number;
-		}>('https://api.themoviedb.org/3/discover/movie', {
-			params: {
-				api_key: process.env.API_KEY,
-				with_genres: name,
-			},
-		})
-	).data;
+	const movies = await fetchMoviesByGenre(name);
 
 	return (
 		<Box
@@ -35,7 +21,7 @@ const MoviesByGenre = async ({
 				gap: '24px',
 			}}
 		>
-			{movies.results.map(
+			{movies.map(
 				({ id, poster_path, vote_average, title, overview, vote_count }) => (
 					<MovieItem
 						key={id}
