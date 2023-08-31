@@ -1,30 +1,10 @@
 import PersonPreview from '@/components/PersonPreview';
+import { fetchPopularPeople } from '@/services/people';
 import Box from '@mui/material/Box';
-import axios from 'axios';
 import React from 'react';
 
-interface PersonPreview {
-	id: string;
-	profile_path: string;
-	name: string;
-	known_for_department: string;
-	known_for: {
-		title: string;
-	}[];
-}
-
-const fetchPeople = async () =>
-	axios.get<{ results: PersonPreview[] }>(
-		`https://api.themoviedb.org/3/person/popular`,
-		{
-			params: {
-				api_key: process.env.API_KEY,
-			},
-		}
-	);
-
-const page = async () => {
-	const people = (await fetchPeople()).data;
+const PopularPeople = async () => {
+	const people = await fetchPopularPeople();
 
 	return (
 		<Box
@@ -37,7 +17,7 @@ const page = async () => {
 				gap: '24px',
 			}}
 		>
-			{people.results.map(
+			{people.map(
 				({ id, profile_path, known_for_department, name, known_for }) => (
 					<PersonPreview
 						key={id}
@@ -52,4 +32,4 @@ const page = async () => {
 	);
 };
 
-export default page;
+export default PopularPeople;
