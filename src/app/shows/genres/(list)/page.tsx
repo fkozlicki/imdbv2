@@ -1,22 +1,12 @@
-import { Genre } from '@/app/movies/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
+import { fetchShowGenres } from '@/services/show';
 import Box from '@mui/material/Box';
 import Chip from '@mui/material/Chip';
-import axios from 'axios';
 import Link from 'next/link';
 import React from 'react';
 
 const ShowsGenres = async () => {
-	const genres = (
-		await axios.get<{ genres: Genre[] }>(
-			`https://api.themoviedb.org/3/genre/tv/list`,
-			{
-				params: {
-					api_key: process.env.API_KEY,
-				},
-			}
-		)
-	).data.genres;
+	const genres = await fetchShowGenres();
 
 	return (
 		<div
