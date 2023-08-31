@@ -1,26 +1,16 @@
 import React from 'react';
-import axios from 'axios';
-import { Genre } from '../[id]/page';
 import Chip from '@mui/material/Chip';
 import SectionTitle from '@/components/SectionTitle';
 import Box from '@mui/material/Box';
 import Link from 'next/link';
+import { fetchMovieGenres } from '@/services/movie';
 
 const MovieGenres = async () => {
-	const genres = (
-		await axios.get<{ genres: Genre[] }>(
-			`https://api.themoviedb.org/3/genre/movie/list`,
-			{
-				params: {
-					api_key: process.env.API_KEY,
-				},
-			}
-		)
-	).data.genres;
+	const genres = await fetchMovieGenres();
 
 	return (
-		<div
-			style={{
+		<Box
+			sx={{
 				margin: 'auto',
 				maxWidth: '1200px',
 				paddingInline: '24px',
@@ -45,7 +35,7 @@ const MovieGenres = async () => {
 					/>
 				))}
 			</Box>
-		</div>
+		</Box>
 	);
 };
 
