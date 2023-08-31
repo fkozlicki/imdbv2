@@ -21,11 +21,9 @@ const SearchResult = ({
 	year,
 	href,
 }: SearchResultProps) => {
-	const { push } = useRouter();
-
 	return (
-		<Box
-			onClick={() => push(href)}
+		<StyledLink
+			href={href}
 			sx={{
 				display: 'flex',
 				padding: '8px',
@@ -33,6 +31,7 @@ const SearchResult = ({
 				borderColor: 'divider',
 				gap: '16px',
 				cursor: 'pointer',
+				'&:hover': 'action.hover',
 			}}
 		>
 			<Box sx={{ display: 'flex' }}>
@@ -72,8 +71,20 @@ const SearchResult = ({
 					</Typography>
 				)}
 			</Box>
-		</Box>
+		</StyledLink>
 	);
 };
 
 export default SearchResult;
+
+const StyledLink = styled(Link)(({ theme }) => ({
+	display: 'flex',
+	padding: '8px',
+	borderBottom: 1,
+	borderColor: 'divider',
+	gap: '16px',
+	cursor: 'pointer',
+	'&:hover': {
+		background: theme.palette.action.hover,
+	},
+}));

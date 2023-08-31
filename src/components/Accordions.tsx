@@ -28,11 +28,11 @@ export default function Accordions() {
 				>
 					<Typography>Movies</Typography>
 				</StyledAccordionSummary>
-				<AccordionDetails>
-					<Typography>Top 250 Movies</Typography>
-					<Typography>Top 250 Movies</Typography>
-					<Typography>Top 250 Movies</Typography>
-				</AccordionDetails>
+				<StyledAccordionDetails>
+					<StyledLink href="/movies/popular">Most Popular Movies</StyledLink>
+					<StyledLink href="/movies/genres">Browse Movies By Genre</StyledLink>
+					<StyledLink href="/movies/top">Top Movies</StyledLink>
+				</StyledAccordionDetails>
 			</StyledAccordion>
 			<StyledAccordion
 				expanded={expanded === 'panel2'}
@@ -43,13 +43,14 @@ export default function Accordions() {
 					aria-controls="panel2bh-content"
 					id="panel2bh-header"
 				>
-					<Typography>Movies</Typography>
+					<Typography>TV Shows</Typography>
 				</StyledAccordionSummary>
-				<AccordionDetails>
-					<Typography>Top 250 Movies</Typography>
-					<Typography>Top 250 Movies</Typography>
-					<Typography>Top 250 Movies</Typography>
-				</AccordionDetails>
+				<StyledAccordionDetails>
+					<StyledLink href="">What&apos;s on TV & Streaming</StyledLink>
+					<StyledLink href="/shows/top">Top TV Shows</StyledLink>
+					<StyledLink href="/shows/popular">Most Popular TV Shows</StyledLink>
+					<StyledLink href="/shows/genres">Browse TV Shows by Genre</StyledLink>
+				</StyledAccordionDetails>
 			</StyledAccordion>
 			<StyledAccordion
 				expanded={expanded === 'panel3'}
@@ -60,22 +61,34 @@ export default function Accordions() {
 					aria-controls="panel3bh-content"
 					id="panel3bh-header"
 				>
-					<Typography>Movies</Typography>
+					<Typography>Celebs</Typography>
 				</StyledAccordionSummary>
-				<AccordionDetails>
-					<Typography>Top 250 Movies</Typography>
-					<Typography>Top 250 Movies</Typography>
-					<Typography>Top 250 Movies</Typography>
-				</AccordionDetails>
+				<StyledAccordionDetails>
+					<StyledLink href="/people/trending">Trending Celebs</StyledLink>
+					<StyledLink href="/people/popular">Most Popular Celebs</StyledLink>
+				</StyledAccordionDetails>
 			</StyledAccordion>
 		</div>
 	);
 }
 
-const StyledAccordion = styled(Accordion)(({}) => ({
+const StyledLink = styled(Link)(({ theme }) => ({
+	padding: '10px 16px',
+	display: 'block',
+	'&:hover': {
+		background: theme.palette.action.hover,
+	},
+}));
+
+const StyledAccordionDetails = styled(AccordionDetails)(() => ({
+	padding: 0,
+}));
+
+const StyledAccordion = styled(Accordion)(() => ({
 	margin: '0 !important',
 }));
-const StyledAccordionSummary = styled(AccordionSummary)(({}) => ({
+
+const StyledAccordionSummary = styled(AccordionSummary)(() => ({
 	'.MuiAccordionSummary-content': {
 		marginBlock: '12px !important',
 	},

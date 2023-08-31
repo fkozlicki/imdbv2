@@ -78,12 +78,12 @@ const Menu = ({ isOpen, closeMenu }: MenuProps) => {
 								<StyledLink href="/movies/genres">
 									Browse Movies by Genre
 								</StyledLink>
-								<StyledLink href="/movies/top">Top 250 Movies</StyledLink>
+								<StyledLink href="/movies/top">Top Movies</StyledLink>
 							</Grid>
 							<Grid item xs={4}>
 								<SectionHeader>TV Shows</SectionHeader>
-								<Typography>What&apos;s on TV & Streaming</Typography>
-								<StyledLink href="/shows/top">Top 250 TV Shows</StyledLink>
+								<StyledLink href="">What&apos;s on TV & Streaming</StyledLink>
+								<StyledLink href="/shows/top">Top TV Shows</StyledLink>
 								<StyledLink href="/shows/popular">
 									Most Popular TV Shows
 								</StyledLink>
