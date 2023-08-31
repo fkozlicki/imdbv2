@@ -1,10 +1,10 @@
 'use client';
 
-import { Box, Typography, Paper } from '@mui/material';
+import { Box, Typography, Paper, styled } from '@mui/material';
 import Image from 'next/image';
 import React from 'react';
 import LocalMoviesIcon from '@mui/icons-material/LocalMovies';
-import { useRouter } from 'next/navigation';
+import Link from 'next/link';
 
 interface SearchResultProps {
 	image: string | null;

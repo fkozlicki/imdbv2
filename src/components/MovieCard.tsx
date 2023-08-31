@@ -6,6 +6,7 @@ import Image from 'next/image';
 import React from 'react';
 import StarIcon from '@mui/icons-material/Star';
 import Link from 'next/link';
+import InsertPhotoIcon from '@mui/icons-material/InsertPhoto';
 
 interface MovieCardProps {
 	image: string;

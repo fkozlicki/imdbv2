@@ -4,7 +4,8 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import { styled } from '@mui/system';
+import { styled } from '@mui/material';
+import Link from 'next/link';
 
 export default function Accordions() {
 	const [expanded, setExpanded] = useState<string | false>(false);

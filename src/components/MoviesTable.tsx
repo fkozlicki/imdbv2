@@ -7,7 +7,7 @@ import React from 'react';
 import Table from './Table';
 import StarIcon from '@mui/icons-material/Star';
 import Link from 'next/link';
-import { MoviePreview } from '@/app/page';
+import { MoviePreview } from '@/app/(home)/page';
 
 const PopularTable = ({ data }: { data: MoviePreview[] }) => {
 	const columns: ColumnDef<MoviePreview>[] = [
