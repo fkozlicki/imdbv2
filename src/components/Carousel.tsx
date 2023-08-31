@@ -52,12 +52,12 @@ const Carousel = ({ children, xs, sm, md }: CarouselProps) => {
 					{el}
 				</SwiperSlide>
 			))}
-			<SwiperButton variant="left" ref={prev}>
+			<SwiperButton aria-label="Previous" variant="left" ref={prev}>
 				<Box fontSize={48} display="flex" paddingY="10px">
 					<NavigateBeforeRoundedIcon fontSize="inherit" />
 				</Box>
 			</SwiperButton>
-			<SwiperButton variant="right" ref={next}>
+			<SwiperButton aria-label="Next" variant="right" ref={next}>
 				<Box fontSize={48} display="flex" paddingY="10px">
 					<NavigateNextRoundedIcon fontSize="inherit" />
 				</Box>
