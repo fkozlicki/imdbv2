@@ -13,32 +13,11 @@ import Link from 'next/link';
 import Container from '@mui/material/Container/Container';
 import Image from 'next/image';
 import { Box, Card, Typography } from '@mui/material';
-import axios from 'axios';
 import Close from '@mui/icons-material/Close';
-import SearchResult from './SearchResult';
-
-interface SearchedPerson {
-	id: number;
-	media_type: 'person';
-	name: string;
-	profile_path: string;
-}
-
-interface SearchedShow {
-	id: number;
-	media_type: 'tv';
-	name: string;
-	poster_path: string;
-	first_air_date: string;
-}
-
-interface SearchedMovie {
-	id: number;
-	media_type: 'movie';
-	title: string;
-	poster_path: string;
-	release_date: string;
-}
+import SearchResultPreview from './SearchResult';
+import { useClickAway } from '@/hooks/useClickAway';
+import { getSearch, type SearchResult } from '@/services/search';
+import SearchResultSkeleton from './SearchResultSkeleton';
 
 export default function Navbar() {
 	const [menuOpen, setMenuOpen] = useState<boolean>(false);
@@ -46,11 +25,12 @@ export default function Navbar() {
 	const [search, setSearch] = useState<string>('');
 	const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
 	const [loading, setLoading] = useState<boolean>(false);
-	const [result, setResult] = useState<
-		(SearchedMovie | SearchedPerson | SearchedShow)[]
-	>([]);
+	const [result, setResult] = useState<SearchResult[]>([]);
 	const [error, setError] = useState<string | null>(null);
 	const [searchOpen, setSearchOpen] = useState<boolean>(false);
+	const searchRef = useClickAway<HTMLDivElement>(() => {
+		closeDropdown();
+	});
 
 	useEffect(() => {
 		handleMenuClose();
@@ -71,18 +51,9 @@ export default function Navbar() {
 
 		setLoading(true);
 		try {
-			const data = (
-				await axios.get<{
-					results: (SearchedMovie | SearchedPerson | SearchedShow)[];
-				}>(`https://api.themoviedb.org/3/search/multi`, {
-					params: {
-						api_key: process.env.NEXT_PUBLIC_API_KEY,
-						query: search,
-					},
-				})
-			).data;
+			const data = await getSearch(search);
 
-			setResult(data.results.slice(0, 8));
+			setResult(data.slice(0, 8));
 		} catch (error) {
 			console.error(error);
 			setError('Searching failed. Try again or refresh the page.');
@@ -189,11 +160,7 @@ export default function Navbar() {
 					>
 						<SearchIcon fontSize="medium" />
 					</IconButton>
-					<Search
-						open={searchOpen}
-						onFocus={openDropdown}
-						onBlur={closeDropdown}
-					>
+					<Search open={searchOpen} onFocus={openDropdown} ref={searchRef}>
 						<StyledInputBase
 							value={search}
 							onChange={handleSearchChange}
@@ -210,15 +177,15 @@ export default function Navbar() {
 							open={dropdownOpen}
 							sx={{ zIndex: 1100, boxShadow: 10 }}
 						>
-							{loading && <div>Loading...</div>}
-							{error && <div>{error}</div>}
+							{loading && <SearchResultSkeleton />}
+							{error && <Box sx={{ padding: '8px' }}>{error}</Box>}
 							{result.length > 0 &&
 								!loading &&
 								!error &&
 								result.map((el, index) => {
 									if (el.media_type === 'tv') {
 										return (
-											<SearchResult
+											<SearchResultPreview
 												key={index}
 												image={el.poster_path}
 												title={el.name}
@@ -228,7 +195,7 @@ export default function Navbar() {
 									}
 									if (el.media_type === 'person') {
 										return (
-											<SearchResult
+											<SearchResultPreview
 												key={index}
 												image={el.profile_path}
 												title={el.name}
@@ -238,7 +205,7 @@ export default function Navbar() {
 									}
 									if (el.media_type === 'movie') {
 										return (
-											<SearchResult
+											<SearchResultPreview
 												key={index}
 												image={el.poster_path}
 												title={el.title}

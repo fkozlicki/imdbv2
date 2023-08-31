@@ -1,7 +1,6 @@
-import { ShowPreview } from '@/app/page';
 import MovieItem from '@/components/MovieItem';
+import { fetchShowsByGenre } from '@/services/show';
 import Box from '@mui/material/Box';
-import axios from 'axios';
 import React from 'react';
 
 const ShowsByGenre = async ({
@@ -9,19 +8,7 @@ const ShowsByGenre = async ({
 }: {
 	params: { name: string };
 }) => {
-	const movies = (
-		await axios.get<{
-			page: number;
-			results: ShowPreview[];
-			total_pages: number;
-			total_results: number;
-		}>('https://api.themoviedb.org/3/discover/tv', {
-			params: {
-				api_key: process.env.API_KEY,
-				with_genres: name,
-			},
-		})
-	).data;
+	const shows = await fetchShowsByGenre(name);
 
 	return (
 		<Box
@@ -34,7 +21,7 @@ const ShowsByGenre = async ({
 				gap: '24px',
 			}}
 		>
-			{movies.results.map(
+			{shows.map(
 				({ id, poster_path, vote_average, name, overview, vote_count }) => (
 					<MovieItem
 						key={id}
