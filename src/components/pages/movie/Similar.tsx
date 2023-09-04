@@ -1,6 +1,6 @@
-import { Movie } from '@/app/movies/[id]/page';
-import { Show } from '@/app/shows/[id]/page';
 import SectionTitle from '@/components/SectionTitle';
+import { Movie } from '@/services/movie';
+import { Show } from '@/services/show';
 import Card from '@mui/material/Card';
 import React from 'react';
 import Carousel from '../../Carousel';

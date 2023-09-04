@@ -1,6 +1,6 @@
-import { Photo } from '@/app/movies/[id]/page';
 import Carousel from '@/components/Carousel';
 import SectionTitle from '@/components/SectionTitle';
+import { Photo } from '@/services/movie';
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
 import Image from 'next/image';

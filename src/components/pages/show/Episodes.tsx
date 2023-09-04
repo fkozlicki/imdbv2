@@ -1,9 +1,9 @@
-import { Episode } from '@/app/shows/[id]/page';
 import Card from '@mui/material/Card';
 import Grid from '@mui/material/Grid';
 import React from 'react';
 import EpisodePreview from './EpisodePreview';
 import SectionTitle from '../../SectionTitle';
+import { Episode } from '@/services/show';
 
 interface EpisodesProps {
 	last: Episode;
